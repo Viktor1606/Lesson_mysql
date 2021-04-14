@@ -1,0 +1,127 @@
+viktor@viktor-VirtualBox:~$ sudo systemctl status sshd
+[sudo] пароль для viktor: 
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2021-04-09 06:38:42 MSK; 1 day 1h ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 679 (sshd)
+      Tasks: 1 (limit: 9484)
+     Memory: 2.1M
+     CGroup: /system.slice/ssh.service
+             └─679 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+апр 09 06:38:41 viktor-VirtualBox systemd[1]: Starting OpenBSD Secure Shell server...
+апр 09 06:38:42 viktor-VirtualBox sshd[679]: Server listening on 0.0.0.0 port 22.
+апр 09 06:38:42 viktor-VirtualBox sshd[679]: Server listening on :: port 22.
+апр 09 06:38:42 viktor-VirtualBox systemd[1]: Started OpenBSD Secure Shell server.
+viktor@viktor-VirtualBox:~$ sudo ipt update
+sudo: ipt: команда не найдена
+viktor@viktor-VirtualBox:~$ sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]                                                         
+Пол:3 https://download.docker.com/linux/ubuntu focal InRelease [36,2 kB]                                                           
+Пол:4 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]                                                       
+Пол:5 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB]   
+Пол:6 http://ru.archive.ubuntu.com/ubuntu focal-updates/main amd64 DEP-11 Metadata [264 kB]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu focal-updates/universe amd64 DEP-11 Metadata [303 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 DEP-11 Metadata [2 468 B]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu focal-backports/universe amd64 DEP-11 Metadata [1 768 B]
+Пол:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [24,3 kB]
+Пол:11 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [58,3 kB]
+Получено 1 014 kB за 1с (703 kB/s)         
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Может быть обновлено 43 пакета. Запустите «apt list --upgradable» для их показа.
+viktor@viktor-VirtualBox:~$ sudo apt install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Уже установлен пакет mysql-server самой новой версии (8.0.23-0ubuntu0.20.04.1).
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream nginx-common nginx-core
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 43 пакетов не обновлено.
+viktor@viktor-VirtualBox:~$ mysql -V
+mysql  Ver 8.0.23-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+viktor@viktor-VirtualBox:~$ mysqld -V
+/usr/sbin/mysqld  Ver 8.0.23-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+viktor@viktor-VirtualBox:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.23-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pipita1606';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> EXIT
+Bye
+viktor@viktor-VirtualBox:~$ sudo mysql
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+viktor@viktor-VirtualBox:~$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.23-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit
+Bye
+viktor@viktor-VirtualBox:~$ cd ~
+viktor@viktor-VirtualBox:~$ nano
+
+
+Используйте «fg» для возврата в nano
+
+[1]+  Остановлен    nano
+viktor@viktor-VirtualBox:~$ nano.my.cnf
+nano.my.cnf: команда не найдена
+viktor@viktor-VirtualBox:~$ nano .my.cnf
+viktor@viktor-VirtualBox:~$ mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.23-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit
+Bye
+viktor@viktor-VirtualBox:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:de:5f:0d brd ff:ff:ff:ff:ff:ff
+    inet 192.168.100.9/24 brd 192.168.100.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 241621sec preferred_lft 241621sec
+    inet6 fe80::2be9:3bcc:f88c:7c4b/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+viktor@viktor-VirtualBox:~$ 
